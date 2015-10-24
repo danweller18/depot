@@ -1,5 +1,17 @@
 class StoreController < ApplicationController
+  include ActionView::Helpers::TextHelper
+
   def index
     @products = Product.order(:title)
+    @count = view_counter
+    @shown_message = "You’ve been here " + pluralize(@count, "time") if session[:counter] >5
   end
+
+  def view_counter
+    if session[:counter].nil?
+      session[:counter] = 0
+    end
+    session[:counter] += 1
+  end
+
 end
