@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   resources :carts
   get 'store/index'
   resources :products
+  resources :line_items do
+    member do
+      post 'decrement'
+    end
+  end
 
   root 'store#index', as: 'store'
   # The priority is based upon order of creation: first created -> highest priority.
