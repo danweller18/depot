@@ -3,6 +3,12 @@ require 'test_helper'
 class UserStoriesTest < ActionDispatch::IntegrationTest
   fixtures :products
 
+  test "should test admin priviledges" do
+    delete '/logout'
+    get '/users/new'
+    assert_redirected_to login_path
+  end
+
   test "buying a product" do
     LineItem.delete_all
     Order.delete_all
