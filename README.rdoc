@@ -1,5 +1,7 @@
 == README
 
+From the agile web development with rails 4 book
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
